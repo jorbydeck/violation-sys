@@ -9,13 +9,14 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 900, height: 680 })
-
+  win = new BrowserWindow({ backgroundColor: '#282c34', show: false })
+  win.maximize() //({ width: 1920, height: 720 })
 
   // and load the index.html of the app.
-  win.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
+  win.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../public/index.html')}`);
   //win.loadURL('http://localhost:3000/')
 
+ 
   // Open the DevTools.
   //win.webContents.openDevTools()
 
@@ -28,10 +29,15 @@ function createWindow () {
   })
 }
 
+
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
